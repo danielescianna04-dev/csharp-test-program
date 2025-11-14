@@ -1,32 +1,67 @@
-# Programma di Test C#
+# Calcolatrice C# con GUI
 
-Un semplice programma console in C# per dimostrare concetti base del linguaggio.
+Un'applicazione desktop cross-platform con interfaccia grafica moderna, sviluppata con C# e Avalonia UI.
 
 ## Caratteristiche
 
-- Input/Output interattivo
-- Operazioni matematiche di base
-- Gestione di liste e cicli
-- Calcolo dei quadrati
+- **Interfaccia grafica moderna** con tema scuro in stile iOS
+- **Calcolatrice funzionante** con tutte le operazioni base
+- **Design responsive** con bottoni colorati e hover effects
+- **Pattern MVVM** per architettura pulita e manutenibile
+- **Cross-platform** - funziona su Windows, macOS e Linux
+
+## Funzionalità
+
+- Addizione (+)
+- Sottrazione (-)
+- Moltiplicazione (×)
+- Divisione (÷)
+- Display grande e leggibile
+- Bottone Clear per resettare
 
 ## Come eseguire
 
-### Con .NET SDK:
+### Prerequisiti
+- .NET SDK 10.0 o superiore
+
+### Esecuzione
 ```bash
-dotnet run Program.cs
+cd CSharpTestApp
+dotnet run
 ```
 
-### Con compilatore C#:
+### Compilazione
 ```bash
-csc Program.cs
-./Program.exe  # Windows
-mono Program.exe  # Mac/Linux
+cd CSharpTestApp
+dotnet build
 ```
 
-## Requisiti
+## Tecnologie Utilizzate
 
-- .NET SDK oppure
-- Mono Runtime (per Mac/Linux)
+- **.NET 10** - Framework di sviluppo
+- **Avalonia UI 11.3** - Framework UI cross-platform
+- **CommunityToolkit.Mvvm** - Per implementazione pattern MVVM
+- **C# 13** - Linguaggio di programmazione
+
+## Struttura del Progetto
+
+```
+CSharpTestApp/
+├── ViewModels/          # Logica dell'applicazione
+├── Views/               # Interfacce utente (XAML)
+├── Assets/              # Risorse (icone, immagini)
+├── App.axaml           # Configurazione app
+└── Program.cs          # Entry point
+```
+
+## Screenshot
+
+L'applicazione presenta:
+- Display nero con testo grande e chiaro
+- Bottoni numerici grigi scuri (#2D2D2D)
+- Bottoni operazioni arancioni (#FF9500)
+- Bottone Clear grigio chiaro (#D4D4D2)
+- Effetti hover su tutti i bottoni
 
 ## Autore
 
