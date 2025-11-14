@@ -1,0 +1,103 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:CSharpTestApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="600"
+        x:Class="CSharpTestApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Calcolatrice C#"
+        Width="400" Height="600"
+        Background="#1E1E1E">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <Style Selector="Button.number">
+            <Setter Property="Background" Value="#2D2D2D"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button.number:pointerover">
+            <Setter Property="Background" Value="#3D3D3D"/>
+        </Style>
+
+        <Style Selector="Button.operation">
+            <Setter Property="Background" Value="#FF9500"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="Button.operation:pointerover">
+            <Setter Property="Background" Value="#FFB340"/>
+        </Style>
+
+        <Style Selector="Button.clear">
+            <Setter Property="Background" Value="#D4D4D2"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style Selector="Button.clear:pointerover">
+            <Setter Property="Background" Value="#E4E4E2"/>
+        </Style>
+    </Window.Styles>
+
+    <Grid Margin="20" RowDefinitions="Auto,*">
+
+        <!-- Display -->
+        <Border Grid.Row="0" Background="#0D0D0D" CornerRadius="12" Padding="20" Margin="0,0,0,20">
+            <TextBlock Text="{Binding Display}"
+                       FontSize="48"
+                       FontWeight="Light"
+                       Foreground="White"
+                       TextAlignment="Right"
+                       VerticalAlignment="Center"/>
+        </Border>
+
+        <!-- Buttons Grid -->
+        <Grid Grid.Row="1" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*">
+
+            <!-- Row 0 -->
+            <Button Grid.Row="0" Grid.Column="0" Classes="clear" Command="{Binding ClearCommand}">C</Button>
+            <Button Grid.Row="0" Grid.Column="1" Classes="number" Command="{Binding NumberCommand}" CommandParameter="±">±</Button>
+            <Button Grid.Row="0" Grid.Column="2" Classes="number" Command="{Binding NumberCommand}" CommandParameter="%">%</Button>
+            <Button Grid.Row="0" Grid.Column="3" Classes="operation" Command="{Binding OperationCommand}" CommandParameter="÷">÷</Button>
+
+            <!-- Row 1 -->
+            <Button Grid.Row="1" Grid.Column="0" Classes="number" Command="{Binding NumberCommand}" CommandParameter="7">7</Button>
+            <Button Grid.Row="1" Grid.Column="1" Classes="number" Command="{Binding NumberCommand}" CommandParameter="8">8</Button>
+            <Button Grid.Row="1" Grid.Column="2" Classes="number" Command="{Binding NumberCommand}" CommandParameter="9">9</Button>
+            <Button Grid.Row="1" Grid.Column="3" Classes="operation" Command="{Binding OperationCommand}" CommandParameter="×">×</Button>
+
+            <!-- Row 2 -->
+            <Button Grid.Row="2" Grid.Column="0" Classes="number" Command="{Binding NumberCommand}" CommandParameter="4">4</Button>
+            <Button Grid.Row="2" Grid.Column="1" Classes="number" Command="{Binding NumberCommand}" CommandParameter="5">5</Button>
+            <Button Grid.Row="2" Grid.Column="2" Classes="number" Command="{Binding NumberCommand}" CommandParameter="6">6</Button>
+            <Button Grid.Row="2" Grid.Column="3" Classes="operation" Command="{Binding OperationCommand}" CommandParameter="-">-</Button>
+
+            <!-- Row 3 -->
+            <Button Grid.Row="3" Grid.Column="0" Classes="number" Command="{Binding NumberCommand}" CommandParameter="1">1</Button>
+            <Button Grid.Row="3" Grid.Column="1" Classes="number" Command="{Binding NumberCommand}" CommandParameter="2">2</Button>
+            <Button Grid.Row="3" Grid.Column="2" Classes="number" Command="{Binding NumberCommand}" CommandParameter="3">3</Button>
+            <Button Grid.Row="3" Grid.Column="3" Classes="operation" Command="{Binding OperationCommand}" CommandParameter="+">+</Button>
+
+            <!-- Row 4 -->
+            <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Classes="number" Command="{Binding NumberCommand}" CommandParameter="0">0</Button>
+            <Button Grid.Row="4" Grid.Column="2" Classes="number" Command="{Binding NumberCommand}" CommandParameter=".">.</Button>
+            <Button Grid.Row="4" Grid.Column="3" Classes="operation" Command="{Binding EqualsCommand}">=</Button>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
